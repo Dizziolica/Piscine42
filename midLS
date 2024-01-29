@@ -1,0 +1,1 @@
+ls -l -A -t --time=modification --group-directories-first
