@@ -1,0 +1,35 @@
+
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <stdlib.h>
+void ft_rev_int_tab(int *tab, int size){
+
+    int newlist[size];
+    int i = 0;
+    
+    
+    while(size - 1  >= 0) {
+        newlist[i] = tab[size  - 1];
+        printf("%d", newlist[i]);
+        
+        i++;
+        size--;
+       
+        
+       
+    }
+    
+    for (i = 0; i < size; i++){
+        
+    }
+  
+   
+}
+
+int main() {
+    int lista[] = {9,8,7,6,5,4,3,2,1};
+    int size = sizeof(lista) / sizeof(lista[0] );
+    ft_rev_int_tab( &lista[0], size );
+
+    return 0;
+}
