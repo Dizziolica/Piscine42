@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define ROWS 3
+#define COLS 3
+#define RANGE_START 1
+#define RANGE_END 9
+
+void initializeArray(int arr[ROWS][COLS]) {
+    int i, j;
+    int num = RANGE_START;
+
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLS; j++) {
+            arr[i][j] = num++;
+        }
+    }
+}
+
+void shuffleArray(int arr[ROWS][COLS]) {
+    srand(time(NULL));
+
+    int totalElements = ROWS * COLS;
+    for (int i = totalElements - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+
+        // Swap arr[i] and arr[j]
+        int temp = arr[i / COLS][i % COLS];
+        arr[i / COLS][i % COLS] = arr[j / COLS][j % COLS];
+        arr[j / COLS][j % COLS] = temp;
+    }
+}
+
+int main() {
+    int bidimensionalArray[ROWS][COLS];
+
+    initializeArray(bidimensionalArray);
+    shuffleArray(bidimensionalArray);
+
+    // Printing the result
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            printf("%d\t", bidimensionalArray[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
